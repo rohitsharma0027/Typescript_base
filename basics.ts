@@ -48,3 +48,38 @@ personDetails = {
     name:'rs',
     age:24
 }
+
+// Type Inference
+let course = 'React - The complete guide'
+
+// course = 12  here we will get warning, because typescript by its own try to infere as many types as possible
+// Although we can assign a type to the course variable, but as soon as we declared it we gave it a string so 
+// typescript automatically picked that value and infered to that
+
+
+// Using Union Types
+let userName : string | number;
+userName = 'rs';
+userName = 12;
+
+//functions and types
+function Addition(a: number, b:number)
+{
+    return a+b;
+}
+
+function printOutput(value:any)
+{
+    console.log(value);
+}
+
+// Genrics
+
+function insertAtBeginning<T>(array:T[],value:T)
+{
+    const newArray = [value,...array];
+    return newArray;
+}
+
+const demoArray = [1,2,3]
+const updatedArray = insertAtBeginning(demoArray,-1) // [-1,1,2,3]
